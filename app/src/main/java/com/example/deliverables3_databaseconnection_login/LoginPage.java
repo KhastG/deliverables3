@@ -6,11 +6,8 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class Login extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
     Button login, signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +18,11 @@ public class Login extends AppCompatActivity {
         login = findViewById(R.id.btnLogin);
         signup = findViewById(R.id.btnSignUp);
 
-        AccountCreation();
-        LoggedAccount();
+        //bugged code na kung san kino-call yung dalawa which is kinda helpful (para saken) na mag debug
+        //AccountCreation();
+        //LoggedAccount();
+        login.setOnClickListener(v -> LoggedAccount());
+        signup.setOnClickListener(v -> AccountCreation());
     }
     private void LoggedAccount() {
         Intent intent = new Intent(this, LoggedPage.class);

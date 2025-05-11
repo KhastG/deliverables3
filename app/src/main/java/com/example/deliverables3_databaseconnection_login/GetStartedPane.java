@@ -6,9 +6,6 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class GetStartedPane extends AppCompatActivity {
     Button getStarted;
@@ -19,8 +16,9 @@ public class GetStartedPane extends AppCompatActivity {
         setContentView(R.layout.activity_get_started_pane);
 
         getStarted = findViewById(R.id.btnGetStarted);
+
         getStarted.setOnClickListener(v->{
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(GetStartedPane.this, LoginPage.class);
             startActivity(intent);
             finish();
         });
