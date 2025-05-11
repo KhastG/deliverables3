@@ -25,7 +25,6 @@ public class CreateUser extends AppCompatActivity {
     Button create;
     EditText username, password;
 
-    TextView showUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +38,6 @@ public class CreateUser extends AppCompatActivity {
 
         //Button
         create = findViewById(R.id.btnCreate);
-
-        //Text View
-        showUser = findViewById(R.id.tvRetrieveUser);
 
         accountCreation();
     }
