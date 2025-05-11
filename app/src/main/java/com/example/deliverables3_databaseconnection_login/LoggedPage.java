@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoggedPage extends AppCompatActivity {
-    String urlRetrieve ="http://10.0.2.2/deliv3/retrieveUser.php";
+    String urlRetrieve ="http://192.168.15.24/deliv3/retrieveUser.php";
 
     Button update, delete, logOut;
 
