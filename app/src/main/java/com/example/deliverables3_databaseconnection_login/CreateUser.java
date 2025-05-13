@@ -1,4 +1,5 @@
 package com.example.deliverables3_databaseconnection_login;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -56,6 +57,9 @@ public class CreateUser extends AppCompatActivity {
 
                             if (status.equals("success")) {
                                 Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this, LoginPage.class);
+                                startActivity(intent);
+                                finish();
                             } else {
                                 String message = obj.getString("message");
                                 Toast.makeText(this, "Error: " + message, Toast.LENGTH_SHORT).show();

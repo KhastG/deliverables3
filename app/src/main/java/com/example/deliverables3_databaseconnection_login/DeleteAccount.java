@@ -1,5 +1,6 @@
 package com.example.deliverables3_databaseconnection_login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,6 +51,9 @@ public class DeleteAccount extends AppCompatActivity {
             if (idSpinner.getSelectedItem() != null) {
                 String selectedId = idSpinner.getSelectedItem().toString();
                 deleteAccountById(selectedId);
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
