@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UpdateAccount">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SELECT ACCOUNT TO UPDATE"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="50sp"/>
+
+    <Spinner
+        android:id="@+id/idSpinnerUpd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnConfirmIdUpd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONFIRM ID"
+        android:textSize="18sp"
+        android:layout_marginRight="70sp"
+        android:layout_marginLeft="70sp"
+        android:layout_marginTop="20sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="USERNAME:"
+        android:layout_marginTop="20sp"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvUsernameFetchUpd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fetch username"
+        android:textSize="18sp"
+        android:layout_marginTop="20sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEW PASSWORD:"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="40sp"
+        />
+
+    <EditText
+        android:id="@+id/etNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="NEW PASSWORD"
+        android:layout_marginRight="40sp"
+        android:layout_marginLeft="40sp"/>
+
+    <Button
+        android:id="@+id/btnConfirmNewPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONFIRM NEW PASSWORD"
+        android:textSize="18sp"
+        android:layout_marginRight="70sp"
+        android:layout_marginLeft="70sp"
+        android:layout_marginTop="40sp"/>
+</LinearLayout>

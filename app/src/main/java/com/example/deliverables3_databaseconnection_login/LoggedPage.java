@@ -45,8 +45,13 @@ public class LoggedPage extends AppCompatActivity {
         users = findViewById(R.id.tvShowResults);
         id = findViewById(R.id.tvShowId);
 
-        retrieveUser();
-        idRetrieve();
+        //Button Functions
+
+        update.setOnClickListener(v->{
+            Intent intent2 = new Intent(LoggedPage.this, UpdateAccount.class);
+            startActivity(intent2);
+            finish();
+        });
 
         delete.setOnClickListener(v->{
             Intent intent = new Intent(LoggedPage.this, DeleteAccount.class);
@@ -59,6 +64,9 @@ public class LoggedPage extends AppCompatActivity {
             startActivity(intent1);
             finish();
         });
+
+        retrieveUser();
+        idRetrieve();
     }
 
     private void retrieveUser() {

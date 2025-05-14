@@ -59,7 +59,7 @@ public class DeleteAccount extends AppCompatActivity {
     }
 
     private void fetchAccountIds() {
-        String url = "http://10.0.2.2/deliv3/idRetrieve.php"; // your PHP file
+        String url = "http://10.0.2.2/deliv3/idRetrieve.php";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
