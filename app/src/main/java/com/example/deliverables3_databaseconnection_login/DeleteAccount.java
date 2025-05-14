@@ -59,7 +59,7 @@ public class DeleteAccount extends AppCompatActivity {
     }
 
     private void fetchAccountIds() {
-        String url = "http://192.168.15.24/deliv3/idRetrieve.php"; // your PHP file
+        String url = "http://10.0.2.2/deliv3/idRetrieve.php"; // your PHP file
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
@@ -76,20 +76,18 @@ public class DeleteAccount extends AppCompatActivity {
                             Toast.makeText(this, "No accounts found.", Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
-                        Toast.makeText(this, "JSON error loading IDs", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
+                        Toast.makeText(this, "JSON error loading IDs: " + e, Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
-                    Toast.makeText(this, "Volley error loading IDs", Toast.LENGTH_SHORT).show();
-                    error.printStackTrace();
+                    Toast.makeText(this, "Volley error loading IDs: " + error , Toast.LENGTH_SHORT).show();
                 });
 
         queue.add(request);
     }
 
     private void deleteAccountById(String id) {
-        String urlDelete = "http://192.168.15.24/deliv3/deleteAccount.php";
+        String urlDelete = "http://10.0.2.2/deliv3/deleteAccount.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, urlDelete,
                 response -> {
@@ -104,13 +102,11 @@ public class DeleteAccount extends AppCompatActivity {
                             fetchAccountIds(); // Refresh list after delete
                         }
                     } catch (Exception e) {
-                        Toast.makeText(this, "JSON error", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
+                        Toast.makeText(this, "JSON error: " + e, Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
-                    Toast.makeText(this, "Volley error", Toast.LENGTH_SHORT).show();
-                    error.printStackTrace();
+                    Toast.makeText(this, "Volley error: " + error, Toast.LENGTH_SHORT).show();
                 }) {
             @Override
             protected Map<String, String> getParams() {

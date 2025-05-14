@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoggedPage extends AppCompatActivity {
-    String urlRetrieveUser = "http://192.168.15.24/deliv3/retrieveUser.php";
-    String urlRetrieveIds = "http://192.168.15.24/deliv3/idRetrieve.php";
+    String urlRetrieveUser = "http://10.0.2.2/deliv3/retrieveUser.php";
+    String urlRetrieveIds = "http://10.0.2.2/deliv3/idRetrieve.php";
 
 
     Button update, delete, logOut;

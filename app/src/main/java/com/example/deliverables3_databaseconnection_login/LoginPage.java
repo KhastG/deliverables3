@@ -22,7 +22,7 @@ import java.util.Map;
 public class LoginPage extends AppCompatActivity {
     Button login, signup;
     EditText user, pass;
-    String urlLogin = "http://192.168.15.24/deliv3/loginAcc.php";
+    String urlLogin = "http://10.0.2.2/deliv3/loginAcc.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
