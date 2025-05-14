@@ -26,7 +26,6 @@ public class CreateUser extends AppCompatActivity {
     Button create;
     EditText username, password;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

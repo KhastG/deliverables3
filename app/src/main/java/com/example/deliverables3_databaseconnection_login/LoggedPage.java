@@ -54,6 +54,12 @@ public class LoggedPage extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        logOut.setOnClickListener(v->{
+            Intent intent1 = new Intent(LoggedPage.this, LoginPage.class);
+            startActivity(intent1);
+            finish();
+        });
     }
 
     private void retrieveUser() {
