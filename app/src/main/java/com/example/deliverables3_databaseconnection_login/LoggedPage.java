@@ -21,13 +21,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoggedPage extends AppCompatActivity {
-    String urlRetrieveUser = "http://10.0.2.2/deliv3/retrieveUser.php";
-    String urlRetrieveIds = "http://10.0.2.2/deliv3/idRetrieve.php";
+    String urlRetrieve ="http://10.0.2.2/deliv3/retrieveUser.php";
 
+    String urlRetrieveIds = "http://10.0.2.2/deliv3/idRetrieve.php";
 
     Button update, delete, logOut;
 
     TextView users, id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +42,14 @@ public class LoggedPage extends AppCompatActivity {
         delete = findViewById(R.id.btnDelete);
         logOut = findViewById(R.id.btnLogOut);
 
-
         //Text View
         users = findViewById(R.id.tvShowResults);
         id = findViewById(R.id.tvShowId);
 
+
+
         retrieveUser();
         idRetrieve();
-
         delete.setOnClickListener(v->{
             Intent intent = new Intent(LoggedPage.this, DeleteAccount.class);
             startActivity(intent);
@@ -57,7 +58,7 @@ public class LoggedPage extends AppCompatActivity {
     }
 
     private void retrieveUser() {
-        StringRequest request = new StringRequest(Request.Method.POST, urlRetrieveUser,
+        StringRequest request = new StringRequest(Request.Method.POST, urlRetrieve,
                 response -> {
                     try {
                         JSONObject object = new JSONObject(response);
@@ -108,3 +109,4 @@ public class LoggedPage extends AppCompatActivity {
         queue.add(request);
     }
 }
+

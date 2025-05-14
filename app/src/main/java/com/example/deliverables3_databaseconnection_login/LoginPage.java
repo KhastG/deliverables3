@@ -22,7 +22,7 @@ import java.util.Map;
 public class LoginPage extends AppCompatActivity {
     Button login, signup;
     EditText user, pass;
-    String urlLogin = "http://10.0.2.2/deliv3/loginAcc.php";
+    String urlLogin = "http://192.168.254.199/deliv3/loginAcc.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class LoginPage extends AppCompatActivity {
 
         login = findViewById(R.id.btnLogin);
         signup = findViewById(R.id.btnSignUp);
+        signup.setOnClickListener(v -> AccountCreation());
 
         //Edit Text
         user = findViewById(R.id.etLoginUsername);
@@ -76,7 +77,7 @@ public class LoginPage extends AppCompatActivity {
             queue.add(stringRequest);
         });
 
-        signup.setOnClickListener(v -> AccountCreation());
+
     }
 
     private void AccountCreation() {

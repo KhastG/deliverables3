@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CreateUser extends AppCompatActivity {
-    String urlCreate = "http://10.0.2.2/deliv3/createAcc.php";
+    String urlCreate = "http://192.168.254.199/deliv3/createAcc.php";
     Button create;
     EditText username, password;
 
