@@ -88,7 +88,6 @@ public class DeleteAccount extends AppCompatActivity {
 
     private void deleteAccountById(String id) {
         String urlDelete = "http://10.0.2.2/deliv3/deleteAccount.php";
-
         StringRequest request = new StringRequest(Request.Method.POST, urlDelete,
                 response -> {
                     try {
@@ -99,7 +98,7 @@ public class DeleteAccount extends AppCompatActivity {
                         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
                         if (success) {
-                            fetchAccountIds(); // Refresh list after delete
+                            fetchAccountIds();
                         }
                     } catch (Exception e) {
                         Toast.makeText(this, "JSON error: " + e, Toast.LENGTH_SHORT).show();
