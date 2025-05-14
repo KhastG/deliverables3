@@ -1,5 +1,6 @@
 package com.example.deliverables3_databaseconnection_login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,11 +21,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoggedPage extends AppCompatActivity {
-    String urlRetrieve ="http://10.0.2.2/deliv3/retrieveUser.php";
+    String urlRetrieveUser = "http://10.0.2.2/deliv3/retrieveUser.php";
+    String urlRetrieveIds = "http://10.0.2.2/deliv3/idRetrieve.php";
+
 
     Button update, delete, logOut;
 
-    TextView users;
+    TextView users, id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +41,23 @@ public class LoggedPage extends AppCompatActivity {
         delete = findViewById(R.id.btnDelete);
         logOut = findViewById(R.id.btnLogOut);
 
+
         //Text View
         users = findViewById(R.id.tvShowResults);
-
+        id = findViewById(R.id.tvShowId);
 
         retrieveUser();
+        idRetrieve();
+
+        delete.setOnClickListener(v->{
+            Intent intent = new Intent(LoggedPage.this, DeleteAccount.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void retrieveUser() {
-        StringRequest request = new StringRequest(Request.Method.POST, urlRetrieve,
+        StringRequest request = new StringRequest(Request.Method.POST, urlRetrieveUser,
                 response -> {
                     try {
                         JSONObject object = new JSONObject(response);
@@ -57,6 +68,32 @@ public class LoggedPage extends AppCompatActivity {
                                 builder.append(usernameArr.getString(i)).append("\n");
                             }
                             users.setText(builder.toString());
+                        }
+                    }catch (Exception e){
+                        Toast.makeText(LoggedPage.this, "JSON PARSING ERROR", Toast.LENGTH_SHORT).show();
+                    }
+                }, Error -> Toast.makeText(LoggedPage.this, "Volley Error" + Error, Toast.LENGTH_SHORT).show()) {
+            @Override
+            protected Map<String, String> getParams(){
+                return new HashMap<>();
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(LoggedPage.this);
+        queue.add(request);
+    }
+
+    private void idRetrieve() {
+        StringRequest request = new StringRequest(Request.Method.POST, urlRetrieveIds,
+                responseID -> {
+                    try {
+                        JSONObject object = new JSONObject(responseID);
+                        if(object.getBoolean("success")){
+                            JSONArray idArr = object.getJSONArray("ID");
+                            StringBuilder builder = new StringBuilder();
+                            for(int i =0; i < idArr.length(); i++){
+                                builder.append(idArr.getString(i)).append("\n");
+                            }
+                            id.setText(builder.toString());
                         }
                     }catch (Exception e){
                         Toast.makeText(LoggedPage.this, "JSON PARSING ERROR", Toast.LENGTH_SHORT).show();

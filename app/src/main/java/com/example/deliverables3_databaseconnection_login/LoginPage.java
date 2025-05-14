@@ -41,6 +41,11 @@ public class LoginPage extends AppCompatActivity {
             String username = user.getText().toString().trim();
             String password = pass.getText().toString().trim();
 
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LoginPage.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, urlLogin,
                     response -> {
                         try {
@@ -49,7 +54,6 @@ public class LoginPage extends AppCompatActivity {
 
                             if (status.equals("success")) {
                                 Intent intent = new Intent(LoginPage.this, LoggedPage.class);
-                                intent.putExtra("username", username); // Optional
                                 startActivity(intent);
                                 finish();
                             } else {
