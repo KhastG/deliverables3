@@ -24,7 +24,6 @@ public class LoggedPage extends AppCompatActivity {
     String urlRetrieveUser = "http://10.0.2.2/deliv3/retrieveUser.php";
     String urlRetrieveIds = "http://10.0.2.2/deliv3/idRetrieve.php";
 
-
     Button update, delete, logOut;
 
     TextView users, id;

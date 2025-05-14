@@ -60,12 +60,14 @@ public class LoginPage extends AppCompatActivity {
                                 finish();
                             } else {
                                 String message = obj.getString("message");
-                                Toast.makeText(LoginPage.this, "Error " + message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginPage.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
-                            Toast.makeText(LoginPage.this, "Exception error: " + e, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPage.this, "Exception error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    }, volleyError -> Toast.makeText(LoginPage.this, "Volley Error: " + volleyError, Toast.LENGTH_SHORT).show()) {
+                    }, volleyError -> {
+                Toast.makeText(LoginPage.this, "Volley Error: " + volleyError.getMessage(), Toast.LENGTH_SHORT).show();
+            }) {
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();
